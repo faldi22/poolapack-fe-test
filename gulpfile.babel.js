@@ -125,6 +125,7 @@ const BUILD_PATH = {
       `${BUILD}/assets/css`,
       `${BUILD}/assets/fonts`,
       `${BUILD}/assets/img`,
+      `${BUILD}/assets/img/default`,
       `${BUILD}/assets/img/homescreen`,
       `${BUILD}/assets/img/icons`,
       `${BUILD}/assets/img/logo`,
@@ -419,9 +420,9 @@ export const copyCustomScript = () => {
 
 export const copyOthers = parallel(
   copyData,
-  copyForbidden,
-  copyCustomStyle,
-  copyCustomScript
+  copyForbidden
+  // copyCustomStyle,
+  // copyCustomScript
 );
 
 

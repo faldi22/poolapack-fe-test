@@ -1,0 +1,88 @@
+//-------------------------------------------------------------------------------
+  @name: dashboard
+  -------------------------------------------------------------------------------//
+
+//dashboard
+.dashboard
+  .container
+    h1.dashboard__title
+      | !{dataDashboard.title}
+    .dashboard__wrapper
+      //dashboard__point
+      .dashboard__point
+        .point
+          p.point__title
+            | !{dataDashboard.titleTotal}
+          .point__wrapper
+            h2.point__total
+              | !{dataDashboard.point}
+            ='\n'
+            img.point__icon(src='assets/img/icons/'+dataDashboard.img alt=dataDashboard.alt)/
+      ///dashboard__point
+      ='\n\n'
+      //dashboard__transaction
+      .dashboard__transaction
+        .transaction
+          h3.transaction__title
+            | !{dataDashboard.titleTransaksi}
+          //transaction__control
+          .transaction__control
+            ul.transaction__nav.js-transaction-tab
+              -
+                dashboardNav = [
+                  {
+                    to: '#semua',
+                    txt: 'Semua'
+                  },
+                  {
+                    to: '#pointMasuk',
+                    txt: 'Point Masuk'
+                  },
+                  {
+                    to: '#pointKeluar',
+                    txt: 'Point Keluar'
+                  }
+                ];
+
+              each val, index in dashboardNav
+                li.transaction__nav__item(class=(index == 0 ? 'transaction__nav__item--active' : ''))
+                  ='\n'
+                  button.transaction__nav__btn(type='button' data-target=val.to)
+                    | !{val.txt}
+            .transaction__calendar
+              ='\n'
+              input.transaction__input-date.js-date-range-picker(type='text' name='date')/
+          ///transaction__control
+          ='\n\n'
+          //transaction__content
+          .transaction__content
+            //transaction__pane
+            .transaction__pane.transaction__pane--active#semua
+              each val, index in dataDashboard.list1
+                -
+                  data = val
+                include ../components/transaction.pug
+                ='\n'
+            ///transaction__pane
+            ='\n\n'
+
+            //transaction__pane
+            .transaction__pane#pointMasuk
+              each val, index in dataDashboard.list2
+                -
+                  data = val
+                include ../components/transaction.pug
+                ='\n'
+            ///transaction__pane
+            ='\n\n'
+
+            //transaction__pane
+            .transaction__pane#pointKeluar
+              each val, index in dataDashboard.list3
+                -
+                  data = val
+                include ../components/transaction.pug
+                ='\n'
+            ///transaction__pane
+          ///transaction__content
+      ///dashboard__transaction

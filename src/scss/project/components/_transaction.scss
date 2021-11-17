@@ -1,0 +1,188 @@
+/* ==========================================================================
+   Components Transaction
+   ========================================================================== */
+
+.transaction {
+  background-color: color(white);
+  padding: 40px 48px 12px;
+  border-radius: 10px;
+  @include large {
+    padding: 32px 24px 12px;
+  }
+  @include extra-small {
+    padding: 16px 16px 12px;
+  }
+  &__title {
+    margin-bottom: 32px;
+  }
+  &__control {
+    @include clearfix;
+    margin-bottom: 48px;
+    @include medium {
+      margin-bottom: 32px;
+    }
+    @include medium {
+      margin-bottom: 24px;
+    }
+  }
+  &__nav {
+    $tn: &;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+    float: left;
+    @include small {
+      float: none;
+      margin-bottom: 8px;
+    }
+    &__item {
+      display: inline-block;
+      margin-right: 20px;
+      @include large {
+        margin-right: 16px;
+      }
+      @include medium {
+        margin-right: 8px;
+      }
+      @include extra-small {
+        margin-right: 4px;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &--active {
+        #{$tn}__btn {
+          background-color: color(primary-rgba);
+          color: color(primary);
+          border-color: transparent;
+        }
+      }
+    }
+    &__btn {
+      border: 0;
+      outline: 0;
+      background-color: color(white);
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: fw(bold);
+      color: color(grey,2);
+      cursor: pointer;
+      border: 1px solid color(grey,2);
+      transition: all .3s ease;
+      @include large {
+        @include font-size(12);
+      }
+      @include small {
+        padding: 8px 16px;
+      }
+      @include extra-small {
+        padding: 8px 14px;
+      }
+      @include retina {
+        padding: 8px;
+      }
+      &:hover {
+        background-color: color(primary-rgba);
+        color: color(primary);
+        border-color: transparent;
+      }
+    }
+  }
+  &__calendar {
+    float: right;
+    @include small {
+      float: none;
+    }
+  }
+  &__input-date {
+    padding: 12px 24px 12px 40px;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid color(primary);
+    background-image: url('../img/icons/date.svg'), url('../img/icons/arrow.svg');
+    background-repeat: no-repeat;
+    background-size: 24px auto, 8px auto;
+    background-position: 8px center, 95% center;
+    @include small {
+      width: 100%;
+    }
+  }
+  &__pane {
+    display: none;
+    &--active {
+      display: block;
+    }
+  }
+  &__item {
+    @include clearfix;
+  }
+  &__date {
+    margin-bottom: 24px;
+    font-weight: fw(semi-bold);
+    color: color(grey, 3);
+    @include large {
+      margin-bottom: 16px;
+    }
+    @include small {
+      @include font-size(12);
+    }
+  }
+  &__time {
+    margin-left: 20px;
+    color: color(grey, 3);
+    font-weight: fw(reguler);
+    @include small {
+      margin-left: 16px;
+    }
+    @include extra-small {
+      margin-left: 8px;
+    }
+  }
+  &__detail {
+    border-bottom: 2px solid color(grey, 5);
+    margin-bottom: 20px;
+    @include clearfix;
+  }
+  &__name {
+    float: left;
+    &__txt {
+      margin-bottom: 0;
+      @include medium {
+        @include font-size(16);
+      }
+    }
+  }
+  &__icon {
+    margin-right: 12px;
+    @include medium {
+      width: 16px;
+    }
+    @include small {
+      margin-right: 8px;
+    }
+  }
+  &__point {
+    float: right;
+    margin-bottom: 16px;
+    @include clearfix;
+    &__number {
+      color: color(primary);
+      margin-bottom: 8px;
+      @include medium {
+        @include font-size(16);
+      }
+    }
+    &__desc {
+      float: right;
+      margin-bottom: 0;
+      font-weight: fw(reguler);
+      color: color(grey, 4);
+      @include font-size(12);
+    }
+    &__icon {
+      width: 16px;
+      margin-right: 8px;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+extends ../templates/default.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'Admin';
+
+//- Body
+block siteContent
+
+  //- dashboard
+  include home/dashboard.pug

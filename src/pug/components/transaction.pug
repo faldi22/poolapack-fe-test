@@ -1,0 +1,32 @@
+//-------------------------------------------------------------------------------
+  @name: transaction
+  -------------------------------------------------------------------------------//
+
+//transaction__item
+.transaction__item
+  h3.transaction__date
+    ='\n'
+    | !{data.date}
+    ='\n'
+    span.transaction__time
+      | !{data.time}
+  .transaction__detail
+    .transaction__name
+        h2.transaction__name__txt
+          ='\n'
+          span.transaction__icon
+            ='\n'
+            img.transaction__icon__el(src='assets/img/icons/'+data.icon alt=data.name)/
+            ='\n'
+          ='\n'
+          | !{data.name}
+    .transaction__point
+      h2.transaction__point__number
+        | !{data.point}
+      p.transaction__point__desc
+        ='\n'
+        img.transaction__point__icon(src='assets/img/icons/'+data.iconPoint alt=data.desc)/
+        | !{data.desc}
+
+='\n'
+///transaction__item
